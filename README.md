@@ -1,22 +1,24 @@
-# 📊 E-Commerce Revenue Analytics (SQL + Python)
+# 📊 E-Commerce Revenue Analytics & Customer Modeling (SQL + Python)
 
 ![Python](https://img.shields.io/badge/Python-3.9-blue)
 ![SQL](https://img.shields.io/badge/SQLite-Analytics-green)
+![Machine Learning](https://img.shields.io/badge/Model-Logistic%20Regression-red)
 ![Dataset](https://img.shields.io/badge/Data-500K%20Transactions-orange)
 
 ---
 
 ## Overview
 
-This project performs an end-to-end revenue analysis on over **500,000 real-world e-commerce transactions** using **SQL and Python**.
+This project performs an end-to-end revenue and customer analytics workflow on over **500,000 real-world e-commerce transactions** using **SQL, Python, and machine learning**.
 
-The objective is to simulate the workflow of a data analyst by:
+The objective is to simulate the workflow of a data analyst / junior data scientist by:
 
 - Cleaning and validating raw transactional data  
 - Designing SQL queries to extract business KPIs  
 - Performing time-series revenue analysis  
 - Identifying geographic and customer revenue concentration  
-- Translating findings into actionable business insights  
+- Engineering customer-level features using the RFM framework  
+- Building a predictive model to classify high-value customers  
 
 ---
 
@@ -40,13 +42,13 @@ Each row represents:
 - Filtered out cancellations and refunds  
 - Converted data types (dates, numeric fields)  
 - Engineered `Revenue = Quantity × UnitPrice`  
-- Loaded cleaned data into SQLite for querying  
+- Loaded cleaned data into SQLite for scalable querying  
 
 ---
 
 ## Tools & Technologies
 
-- **Python** (Pandas, Matplotlib)
+- **Python** (Pandas, Matplotlib, Scikit-learn)
 - **SQLite**
 - **SQL**
 - **Git & GitHub**
@@ -60,6 +62,7 @@ Each row represents:
 3. Which countries generate the most revenue?
 4. Who are the top customers by total spend?
 5. How concentrated is revenue across customers?
+6. Can we predict high-value customers?
 
 ---
 
@@ -68,7 +71,36 @@ Each row represents:
 - **Revenue is highly concentrated geographically:** The United Kingdom accounts for ~82% of total revenue.
 - **Strong seasonality detected:** Revenue peaks in November 2011 (~£1.16M), suggesting Q4 demand surge.
 - **Customer concentration effect:** A small percentage of customers generate a disproportionately large share of total revenue.
-- **Growth trend:** Revenue steadily increased throughout 2011 prior to the Q4 peak.
+- **Customer value drivers:** Purchase frequency and total spend strongly predict high-value customers.
+
+---
+
+## 🤖 Predictive Modeling
+
+High-value customers were defined as the **top 20% by total revenue**.
+
+Using RFM features:
+
+- **Recency** – Days since last purchase  
+- **Frequency** – Number of unique invoices  
+- **Monetary** – Total revenue generated  
+
+A **Logistic Regression model** was trained to classify high-value customers.
+
+### Model Performance
+
+- Accuracy: ~100% on test set  
+- Precision: 1.00  
+- Recall: 1.00  
+- Perfect confusion matrix classification  
+
+### Feature Importance
+
+- **Monetary** is the strongest predictor  
+- **Frequency** provides additional signal  
+- **Recency** has smaller impact  
+
+This demonstrates the ability to translate business definitions into predictive modeling workflows.
 
 ---
 
@@ -154,12 +186,14 @@ requirements.txt
 
 This project demonstrates:
 
-- End-to-end data cleaning & transformation
-- SQL-based KPI extraction
-- Time-series revenue analysis
-- Geographic and customer revenue segmentation
-- Business-focused interpretation of data
-- Clean repository structuring and documentation
+- End-to-end data cleaning & transformation  
+- SQL-based KPI extraction  
+- Time-series revenue analysis  
+- Customer-level feature engineering (RFM framework)  
+- Predictive modeling using logistic regression  
+- Model evaluation (precision, recall, confusion matrix)  
+- Translation of modeling results into business strategy  
+- Clean repository structuring and documentation  
 
 ---
 
